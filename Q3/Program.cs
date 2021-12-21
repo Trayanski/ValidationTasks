@@ -21,7 +21,7 @@ namespace Q3
 			{
 				PasswordValidator passwordValidator = new PasswordValidator();
 				// validate password
-				isValid = passwordValidator.ValidatePassword(password);
+				isValid = passwordValidator.ValidatePassword(password, HandleValidationExceptionMethod);
 			}
 			catch (ValidationException ex)
 			{
@@ -39,6 +39,12 @@ namespace Q3
 			}
 
 			Console.ReadLine();
+		}
+
+		// customer api exception handling from company code
+		public static void HandleValidationExceptionMethod(string message)
+		{
+			throw new ValidationException(message);
 		}
 	}
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
 namespace Q3
@@ -32,7 +33,9 @@ namespace Q3
 		private static readonly string _regex_pattern_maxRepeatedCharactersCount = "{" + maxRepeatedCharactersCount + "}";
 		private static readonly string regex_pattern_maxRepeatedCharacters = string.Format(regex_pattern_maxRepeatedCharacters_template, _regex_upperCase, _regex_lowerCase, _regex_digit, _regex_specialCharacters, _regex_pattern_maxRepeatedCharactersCount);
 
-		public bool ValidatePassword(string password)
+		public delegate void HandleValidationException(string exceptionMessage);
+		
+		public bool ValidatePassword(string password, HandleValidationException callback)
 		{
 			password = password.Trim();
 
@@ -42,33 +45,34 @@ namespace Q3
 
 			// "^.{6,24}"
 			string regex_pattern = string.Format(regex_pattern_base_template, string.Empty, regex_pattern_length);
+
 			if (!Regex.IsMatch(password, regex_pattern))
-				throw new ValidationException(string.Format(exceptionMessage_length_template, minCharacterCount, maxCharacterCount));
+				callback(string.Format(exceptionMessage_length_template, minCharacterCount, maxCharacterCount));
 
 			// "^(?=.*[A-Z])."
 			regex_pattern = string.Format(regex_pattern_base_template, regex_pattern_atLeastOneCharInSet_upperCase, string.Empty);
 			if (!Regex.IsMatch(password, regex_pattern))
-				throw new ValidationException(exceptionMessage_upperCase);
+				callback(exceptionMessage_upperCase);
 
 			// "^(?=.*[a-z])."
 			regex_pattern = string.Format(regex_pattern_base_template, regex_pattern_atLeastOneCharInSet_lowerCase, string.Empty);
 			if (!Regex.IsMatch(password, regex_pattern))
-				throw new ValidationException(exceptionMessage_lowerCase);
+				callback(exceptionMessage_lowerCase);
 
 			// "^(?=.*[\\d])."
 			regex_pattern = string.Format(regex_pattern_base_template, regex_pattern_atLeastOneCharInSet_digit, string.Empty);
 			if (!Regex.IsMatch(password, regex_pattern))
-				throw new ValidationException(exceptionMessage_digit);
+				callback(exceptionMessage_digit);
 
 			// "^(?=.*[!@#\\$%\\^&\\*\\(\\)\\+=_-{}\\[\\]:;\"'\\?<>,\\.])."
 			regex_pattern = string.Format(regex_pattern_base_template, regex_pattern_atLeastOneCharInSet_specialCharacters, string.Empty);
 			if (!Regex.IsMatch(password, regex_pattern))
-				throw new ValidationException(exceptionMessage_specialCharacters);
+				callback(exceptionMessage_specialCharacters);
 
 			// "^(?!.*([A-Za-z\\d!@#\\$%\\^&\\*\\(\\)\\+=_-{}\\[\\]:;\"'\\?<>,\\.])\\1{2})."
 			regex_pattern = string.Format(regex_pattern_base_template, regex_pattern_maxRepeatedCharacters, string.Empty);
 			if (!Regex.IsMatch(password, regex_pattern))
-				throw new ValidationException(exceptionMessage_maxRepeatedCharacters);
+				callback(exceptionMessage_maxRepeatedCharacters);
 
 			return true;
 		}
