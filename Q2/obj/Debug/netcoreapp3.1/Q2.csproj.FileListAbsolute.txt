@@ -1,0 +1,13 @@
+C:\Projects\Visual Studio\JOB OPPORTUNITIES\XanthosCSharpTest\Q2\bin\Debug\netcoreapp3.1\Q2.exe
+C:\Projects\Visual Studio\JOB OPPORTUNITIES\XanthosCSharpTest\Q2\bin\Debug\netcoreapp3.1\Q2.deps.json
+C:\Projects\Visual Studio\JOB OPPORTUNITIES\XanthosCSharpTest\Q2\bin\Debug\netcoreapp3.1\Q2.runtimeconfig.json
+C:\Projects\Visual Studio\JOB OPPORTUNITIES\XanthosCSharpTest\Q2\bin\Debug\netcoreapp3.1\Q2.runtimeconfig.dev.json
+C:\Projects\Visual Studio\JOB OPPORTUNITIES\XanthosCSharpTest\Q2\bin\Debug\netcoreapp3.1\Q2.dll
+C:\Projects\Visual Studio\JOB OPPORTUNITIES\XanthosCSharpTest\Q2\bin\Debug\netcoreapp3.1\Q2.pdb
+C:\Projects\Visual Studio\JOB OPPORTUNITIES\XanthosCSharpTest\Q2\obj\Debug\netcoreapp3.1\Q2.csprojAssemblyReference.cache
+C:\Projects\Visual Studio\JOB OPPORTUNITIES\XanthosCSharpTest\Q2\obj\Debug\netcoreapp3.1\Q2.AssemblyInfoInputs.cache
+C:\Projects\Visual Studio\JOB OPPORTUNITIES\XanthosCSharpTest\Q2\obj\Debug\netcoreapp3.1\Q2.AssemblyInfo.cs
+C:\Projects\Visual Studio\JOB OPPORTUNITIES\XanthosCSharpTest\Q2\obj\Debug\netcoreapp3.1\Q2.csproj.CoreCompileInputs.cache
+C:\Projects\Visual Studio\JOB OPPORTUNITIES\XanthosCSharpTest\Q2\obj\Debug\netcoreapp3.1\Q2.dll
+C:\Projects\Visual Studio\JOB OPPORTUNITIES\XanthosCSharpTest\Q2\obj\Debug\netcoreapp3.1\Q2.pdb
+C:\Projects\Visual Studio\JOB OPPORTUNITIES\XanthosCSharpTest\Q2\obj\Debug\netcoreapp3.1\Q2.genruntimeconfig.cache
